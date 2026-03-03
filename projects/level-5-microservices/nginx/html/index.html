@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API Gateway</title>
+</head>
+
+<body style="font-family: Arial; padding: 40px;">
+    <h1>Microservices API Gateway</h1>
+    <p>This page acts as the frontend served by the NGINX Gateway.</p>
+    <h3>Available API Endpoints:</h3>
+    <ul>
+        <li><a href="/api/users/">GET /api/users/</a> => Routes to Users Microservice</li>
+        <li><a href="/api/orders/">GET /api/orders/</a> => Routes to Orders Microservice</li>
+        <li><a href="/api/search/">GET /api/search/</a> => Routes to Search Microservice</li>
+        <li><a href="/api/invalid/">GET /api/invalid/</a> => Returns JSON 404 Error</li>
+    </ul>
+</body>
+
+</html>

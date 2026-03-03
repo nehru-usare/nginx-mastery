@@ -1,0 +1,31 @@
+services:
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: prod_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - web_app1
+      - web_app2
+      - api_payment
+
+  web_app1:
+    image: hashicorp/http-echo
+    command: [ "-text", "Frontend Web Server 1 (Running smoothly behind load balancer!)", "-listen", ":8080" ]
+
+  web_app2:
+    image: hashicorp/http-echo
+    command: [ "-text", "Frontend Web Server 2 (Running smoothly behind load balancer!)", "-listen", ":8080" ]
+
+  api_payment:
+    image: hashicorp/http-echo
+    command: [ "-text", '{"status": "secure_payment_processed", "timestamp": "live_data"}', "-listen", ":8080" ]

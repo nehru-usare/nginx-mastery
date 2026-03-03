@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3: HTTPS & Security</title>
+</head>
+
+<body style="font-family: Arial; padding: 40px; text-align: center;">
+    <h1>HTTPS is Enabled!</h1>
+    <p>You have successfully redirected HTTP to HTTPS and enabled SSL termination.</p>
+    <p>Security headers (X-Frame-Options, XSS-Protection) are also active.</p>
+    <br>
+    <div style="padding: 20px; background: #eee; border-radius: 8px; max-width: 400px; margin: auto;">
+        <h3>Try the Rate-Limited API</h3>
+        <a href="/api/" style="color: #0066cc;">Visit /api/</a>
+        <p style="font-size: 0.9em; color: #666;">If you visit /api/ and refresh it faster than 1 time per second
+            (exceeding a burst of 5), NGINX will block you with a 503 error!</p>
+    </div>
+</body>
+
+</html>
